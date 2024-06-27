@@ -33,3 +33,7 @@
     </table>
 </div>
 @endsection
+<!-- tasks/index.blade.php -->
+@foreach ($tasks as $task)
+    <p>{{ $task->title }}</p>
+@endforeach
