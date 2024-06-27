@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('case_id');
+            $table->date('session_date');
+            $table->text('notes')->nullable();
             $table->timestamps();
+        
+            $table->foreign('case_id')->references('id')->on('cases');
         });
+        
     }
 
     /**

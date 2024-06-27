@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
+            $table->string('case_number');
+            $table->unsignedBigInteger('client_id');
+            $table->enum('status', ['open', 'closed', 'pending']);
             $table->timestamps();
+        
+            $table->foreign('client_id')->references('id')->on('clients');
         });
+        
     }
 
     /**
