@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -29,4 +29,42 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
+@endsection --}}
+
+<!-- resources/views/tasks/create.blade.php -->
+{{-- @extends('layouts.app')
+
+@section('content')
+    <h1>Create Task</h1>
+    <form action="{{ route('tasks.store') }}" method="POST">
+        @csrf
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
+        <button type="submit">Create</button>
+    </form>
+@endsection --}}
+
+@extends('layouts.app')
+
+@section('content')
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="my-4">Create Task</h1>
+            <form action="{{ route('tasks.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Create</button>
+            </form>
+        </div>
+    </div>
 @endsection
+
